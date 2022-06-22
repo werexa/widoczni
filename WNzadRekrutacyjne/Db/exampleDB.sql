@@ -61,6 +61,9 @@ CREATE TABLE IF NOT EXISTS team(
 id INTEGER PRIMARY KEY AUTOINCREMENT not null,
 name TEXT
 );
+INSERT INTO contactsteam(id,name)
+values 
+(1,'test'),(2,'www'),(3,'teet');
 
 CREATE TABLE IF NOT EXISTS contactsteam(
 id_team integer not null,
@@ -106,7 +109,10 @@ date_start TEXT not null, -- data rozpoczęcia pakietu
 date_end TEXT not null, --data zakończenia pakietu
 FOREIGN KEY (id_client) REFERENCES clients(id),
 FOREIGN KEY (id_employee) REFERENCES employees(id),
-FOREIGN KEY (id_package) REFERENCES package(id)
+FOREIGN KEY (id_package) REFERENCES package(id),
+FOREIGN KEY (id_contactsteam) REFERENCES team(id),
+
+
 );
 
 INSERT INTO transactions(id_client,id_package,id_contactsteam,id_employee,date_paid,date_start,date_end)

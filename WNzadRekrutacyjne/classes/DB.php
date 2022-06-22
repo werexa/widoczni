@@ -18,7 +18,7 @@ class Db
     private static function instance()
     {
         try {
-            $myPDO = new PDO('sqlite:' . dirname(__FILE__) . '/exampleDB.db');
+            $myPDO = new PDO('sqlite:' .'../db/exampleDB.db');
             $myPDO->sqliteCreateFunction("POW", "sqlite_pow", 2);
             $myPDO->query('SET NAMES utf8');
             $myPDO->query('SET CHARACTER_SET utf8_unicode_ci');
