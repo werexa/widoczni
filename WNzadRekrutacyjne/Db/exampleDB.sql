@@ -14,7 +14,7 @@ values
 ('Peter', 'Smith','PeterSmith@gmail.com'), 
 ('Kate', 'Smith','KateSmith@gmail.com'), 
 ('MEM', 'Smith','MEMSmith@gmail.com'), 
-('Alex', 'Smith','AlexSmith@gmail.com') 
+('Alex', 'Smith','AlexSmith@gmail.com');
 
 
 
@@ -31,7 +31,7 @@ values
 ('50+', 'descriptiondescriptiondescriptiondescription','70 month'),
 ('9s0+', 'descriptiondescriptiondescriptiondescription','8 week'),
 ('80dd+', 'descriptiondescriptiondescriptiondescription','10 month'),
-('70xx+', 'descriptiondescriptiondescriptiondescription','7 day'),
+('70xx+', 'descriptiondescriptiondescriptiondescription','7 day');
 
 
 
@@ -53,25 +53,25 @@ values
 ('contacts4', 'Smith','contacts4@gmail.com',159159159,99999999999),
 ('contacts5', 'Smith','contacts5@gmail.com',159159159,99999999999),
 ('contacts6', 'Smith','contacts6@gmail.com',159159159,99999999999),
-('contacts7', 'Smith','contacts7@gmail.com',159159159,99999999999),
+('contacts7', 'Smith','contacts7@gmail.com',159159159,99999999999);
 
 
 
 CREATE TABLE IF NOT EXISTS team(
 id INTEGER PRIMARY KEY AUTOINCREMENT not null,
-name TEXT,
+name TEXT
 );
 
 CREATE TABLE IF NOT EXISTS contactsteam(
 id_team integer not null,
 id_contact INTEGER not null,
 FOREIGN KEY (id_contact) REFERENCES contacts(id),
-FOREIGN KEY (id_team) REFERENCES team(id),
+FOREIGN KEY (id_team) REFERENCES team(id)
 );
 
 INSERT INTO contactsteam(id_team,id_contact)
 values 
-(1,1),(1,2),(1,3)
+(1,1),(1,2),(1,3);
 
 CREATE TABLE IF NOT EXISTS employees(
 id INTEGER PRIMARY KEY AUTOINCREMENT not null,
@@ -87,12 +87,12 @@ phone NUMERIC
 
 INSERT INTO employees(name,lastname,job, section, email)
 values 
-('employe1', 'Smith','webdeveloper','poznanXXX','employe1@gmail.com',159159159),
-('employe2', 'Smith','webdeveloper','poznanXXX','employ2@gmail.com',159159159),
-('employe3', 'Smith','webdeveloper','poznanXXX','employe3@gmail.com',159159159),
-('employe4', 'Smith','webdeveloper','poznanXXX', 'employe4@gmail.com',159159159),
-('employe5', 'Smith','webdeveloper','poznanXXX','employe5@gmail.com',159159159),
-('employe6', 'Smith','webdeveloper','poznanXXX','employe6@gmail.com',159159159),
+('employe1', 'Smith','webdeveloper','poznanXXX','employe1@gmail.com'),
+('employe2', 'Smith','webdeveloper','poznanXXX','employ2@gmail.com'),
+('employe3', 'Smith','webdeveloper','poznanXXX','employe3@gmail.com'),
+('employe4', 'Smith','webdeveloper','poznanXXX', 'employe4@gmail.com'),
+('employe5', 'Smith','webdeveloper','poznanXXX','employe5@gmail.com'),
+('employe6', 'Smith','webdeveloper','poznanXXX','employe6@gmail.com');
 
 DROP TABLE IF EXISTS transactions;
 CREATE TABLE IF NOT EXISTS transactions(
@@ -114,5 +114,5 @@ values
 (1,1,1,1,'2022-06-22', '2022-06-22', '2022-11-22'),
 (2,1,1,1,'2022-06-22', '2022-06-22', '2022-11-22'),
 (3,1,1,1,'2022-06-22', '2022-06-22', '2022-11-22'),
-(4,1,1,1,'2022-06-22', '2022-06-22', '2022-11-22'),
+(4,1,1,1,'2022-06-22', '2022-06-22', '2022-11-22');
 
