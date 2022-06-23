@@ -23,6 +23,7 @@ id INTEGER  PRIMARY KEY AUTOINCREMENT not null,
 name TEXT, --nazwa pakietu
 description TEXT, --opis pakietu
 packagetime TEXT --czas trwania pakietu
+active INTEGER DEFAULT 1 -- 1 active /0 - not active
 );
 
 INSERT INTO package(name,description,packagetime)

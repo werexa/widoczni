@@ -3,10 +3,10 @@
 /**
  * Definicja brakujacej funkcji w SQLITE POW
  */
-function sqlite_pow($number, $e)
-{
-    return pow($number, $e);
-}
+//function sqlite_pow($number, $e)
+//{
+   // return pow($number, $e);
+//}
 
 //---------------------------------
 //UNIWERSALNE ŁĄCZENIE SIĘ Z BAZĄ
@@ -18,12 +18,13 @@ class Db
     private static function instance()
     {
         try {
-            $myPDO = new PDO('sqlite:' .'../db/exampleDB.db');
-            $myPDO->sqliteCreateFunction("POW", "sqlite_pow", 2);
-            $myPDO->query('SET NAMES utf8');
-            $myPDO->query('SET CHARACTER_SET utf8_unicode_ci');
-            $myPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+            $myPDO = new PDO('sqlite:'. dirname(__DIR__).'/db/exampleDB.db ');
+           // $myPDO->sqliteCreateFunction("POW", "sqlite_pow", 2);
+            //$myPDO->query('SET NAMES utf8');
+          //  $myPDO->query('SET CHARACTER_SET utf8_unicode_ci');
+            //$myPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
         } catch (PDOException $ex) {
+            var_dump($ex->getMessage());
             die(json_encode(array('outcome' => false, 'message' => 'Unable to connect')));
         }
 
