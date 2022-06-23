@@ -14,16 +14,18 @@ class Page extends Db
 
         $data = $this->executeS($sql);
 
-        if ($data || count($data) == 0) {
+        if (!$data || count($data) == 0) {
             return "soory, This table is empty";
         }
 
-        $html =  "<table>
+        $html =  "<table id='datatable'>
             <thead> 
         <tr>";
-        for ($i = 0; count($data) > 0 && $i < count($data[0]); $i++) {
-            $html .= "<th>" . $data[0][$i] . "</th>";
+        foreach ($data[0] as $key => $value) {
+            $html .= "<th>$key</th>";
         }
+
+
 
         $html .= "</tr>
     </thead>
@@ -42,9 +44,10 @@ class Page extends Db
 
     public function makePage()
     {
+        $sql = "";
         //"info o klientach + wykupione pakiety + osoby kontaktowe + opiekunowie"; 
         switch ($this->name) {
-            case 'client': {
+            case "client": {
                     $sql = "SELECT 
                 c.name as name, 
                 c.lastname as lastname, 
@@ -64,32 +67,37 @@ class Page extends Db
                 break;
 
                 //info o klientach danej osoby
-            case 'employee': {
-                    $id_employee = $_GET["employeeid"];
-                    $sql = "SELECT c.name, c.lastname, c.email, package.id , t.date_paid,  t.date_start,  t.date_end 
-            FROM transactions t
-            INNER JOIN clients c ON t.id_client = c.id,
+            case "employee": {
+                    $id_employee = $_GET["employeeid"] ?? 1;
+                    $sql = "SELECT c.name, c.lastname as 'last name', c.email, p.id as 'package id', t.date_paid 'packade date paid',  t.date_start as 'package date start',  t.date_end as 'package date end'
+            FROM transactions t 
+            INNER JOIN clients c ON t.id_client = c.id
             INNER JOIN package p ON t.id_package = p.id 
             where t.id_employee = $id_employee";
                 }
+                break;
 
                 //info o osobach kontaktowych
-            case 'contacts': {
+            case "contacts": {
                     $sql = "SELECT name, lastname, email, phone, NIP from contacts";
                 }
+                break;
 
                 //informacje o dostępnych pakietach
             case "package": {
-                    $sql = "SELECT name , description , packagetime  from package where active = 1";
+                    $sql = "SELECT name , description , packagetime as 'package time'  from package where active = 1";
                 }
+                break;
 
             default:
-                $sql = "";
+                //$sql = "";
                 break;
         }
 
-        if (empty($sql) || empty($this->name))
+        if (empty($sql) || empty($this->name)) {
             require(dirname(__DIR__) . "/views/template/main.php");
+            return;
+        }
 
         $table = $this->drawTable($sql);
         require(dirname(__DIR__) . "/views/template/table.php");

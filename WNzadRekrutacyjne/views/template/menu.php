@@ -1,13 +1,13 @@
 
 <header class="masthead mb-auto">
     <div class="inner">
-        <h3 class="masthead-brand">Cover</h3>
+        <h3 class="masthead-brand"><?php echo $this->name ?? "main" ?></h3>
         <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="main.php">main</a>
-            <a class="nav-link" href="index.php?action=client">clients</a>
-            <a class="nav-link" href="index.php?action=employees&employeeid=1">employees</a>
-            <a class="nav-link" href="index.php?action=contacts">contacts</a>
-            <a class="nav-link" href="index.php?action=packages">packages</a>
+            <a class="nav-link <?php echo empty($this->name) ? "active" : "" ?>" href="index.php">main</a>
+            <a class="nav-link" <?php echo $this->name=="client" ? "active" : ""?> href="index.php?action=client">Clients</a>
+            <a class="nav-link" <?php echo ($this->name=="employee") ? "active" : ""?>href="index.php?action=employee&employeeid=1">Employees</a>
+            <a class="nav-link" <?php  echo $this->name=="contacts" ? "active" : ""?>href="index.php?action=contacts">contacts</a>
+            <a class="nav-link" <?php  echo $this->name=="package" ? "active" : ""?>href="index.php?action=package">packages</a>
         </nav>
     </div>
 </header>

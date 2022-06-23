@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS package(
 id INTEGER  PRIMARY KEY AUTOINCREMENT not null,
 name TEXT, --nazwa pakietu
 description TEXT, --opis pakietu
-packagetime TEXT --czas trwania pakietu
+packagetime TEXT, --czas trwania pakietu
 active INTEGER DEFAULT 1 -- 1 active /0 - not active
 );
 
@@ -62,7 +62,7 @@ CREATE TABLE IF NOT EXISTS team(
 id INTEGER PRIMARY KEY AUTOINCREMENT not null,
 name TEXT
 );
-INSERT INTO contactsteam(id,name)
+INSERT INTO team(id,name)
 values 
 (1,'test'),(2,'www'),(3,'teet');
 
@@ -111,9 +111,7 @@ date_end TEXT not null, --data zakończenia pakietu
 FOREIGN KEY (id_client) REFERENCES clients(id),
 FOREIGN KEY (id_employee) REFERENCES employees(id),
 FOREIGN KEY (id_package) REFERENCES package(id),
-FOREIGN KEY (id_contactsteam) REFERENCES team(id),
-
-
+FOREIGN KEY (id_contactsteam) REFERENCES team(id)
 );
 
 INSERT INTO transactions(id_client,id_package,id_contactsteam,id_employee,date_paid,date_start,date_end)

@@ -108,3 +108,26 @@ body {
 .mastfoot {
   color: rgba(255, 255, 255, .5);
 }
+
+
+/*
+*Datatables
+*/
+
+.dataTables_wrapper{
+  color:#fff !important;
+}
+
+table>thead>tr>th{
+  color:#fff !important;
+}
+
+.dataTables_paginate{
+  color:#fff !important;
+
+}
+
+.dataTables_wrapper  label,.dataTables_wrapper  select, .dataTables_wrapper input,.dataTables_wrapper a, .dataTables_wrapper span, .dataTables_wrapper div {
+  color:#fff !important;
+
+}

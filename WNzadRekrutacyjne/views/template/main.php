@@ -8,7 +8,7 @@
             <h1 class="cover-heading">Hej, chcę do was dołączyć</h1>
             <p class="lead">Wejdź w jedną z zakładek aby zobaczyć moją pracę</p>
             <p class="lead">
-                <a href="#" class="btn btn-lg btn-secondary">Zobacz na przykład klientów</a>
+                <a href="#index.php?action=employee" class="btn btn-lg btn-secondary">Zobacz na przykład klientów</a>
             </p>
         </main>
         <?php include("footer.php") ?>
