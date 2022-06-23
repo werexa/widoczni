@@ -5,9 +5,9 @@
         <nav class="nav nav-masthead justify-content-center">
             <a class="nav-link <?php echo empty($this->name) ? "active" : "" ?>" href="index.php">main</a>
             <a class="nav-link" <?php echo $this->name=="client" ? "active" : ""?> href="index.php?action=client">Clients</a>
-            <a class="nav-link" <?php echo ($this->name=="employee") ? "active" : ""?>href="index.php?action=employee&employeeid=1">Employees</a>
-            <a class="nav-link" <?php  echo $this->name=="contacts" ? "active" : ""?>href="index.php?action=contacts">contacts</a>
-            <a class="nav-link" <?php  echo $this->name=="package" ? "active" : ""?>href="index.php?action=package">packages</a>
+            <a class="nav-link" <?php echo ($this->name=="employee") ? "active" : ""?>href="index.php?action=employee">Employees</a>
+            <a class="nav-link" <?php  echo $this->name=="contacts" ? "active" : ""?>href="index.php?action=contacts">Contacts</a>
+            <a class="nav-link" <?php  echo $this->name=="package" ? "active" : ""?>href="index.php?action=package">Packages</a>
         </nav>
     </div>
 </header>
